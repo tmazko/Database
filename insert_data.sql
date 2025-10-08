@@ -17,7 +17,7 @@ INSERT INTO professors( name, email ) values
 	('Angelina', 'ashynkarenko@kse.org.ua'),
     ('Ihor', 'imiroshnychenko@kse.org.ua'),
     ('Olha', 'oskrypak@kse.org.ua'),
-    ('Tetiana Proshchenko', 'tproshchenko@kse.org.ua');
+    ('Tetiana', 'tproshchenko@kse.org.ua');
 
 TRUNCATE TABLE students;
 INSERT INTO students (name, email, end_year, program_id) VALUES
