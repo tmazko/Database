@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-6d72c18b5ef1a532743e1ea923656f4a"}, "mark": {"type": "line", "color": "#6A0DAD", "point": {"color": "orange", "fill": "orange", "size": 70}, "strokeWidth": 3}, "encoding": {"tooltip": [{"field": "year", "title": "Year", "type": "quantitative"}, {"field": "count", "title": "Game Count", "type": "quantitative"}, {"field": "avg_price", "format": "$.2f", "title": "Avg Price", "type": "quantitative"}], "x": {"axis": {"labelAngle": 0, "labelFontSize": 14, "title": "Release Year", "titleFontSize": 16, "values": [2006, 2008, 2010, 2012, 2014, 2016, 2018, 2020, 2022, 2024]}, "field": "year", "type": "ordinal"}, "y": {"axis": {"labelFontSize": 14, "title": "Number of Games Released", "titleFontSize": 16}, "field": "count", "type": "quantitative"}}, "height": 450, "params": [{"name": "param_15", "select": {"type": "interval", "encodings": ["x", "y"]}, "bind": "scales"}], "title": {"text": "Dynamics of Game Releases & Average Price", "fontSize": 24, "subtitle": "Source: Steam Dataset Analysis", "subtitleFontSize": 14}, "width": 800, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-6d72c18b5ef1a532743e1ea923656f4a": [{"year": 2006, "count": 3, "avg_price": 8.32}, {"year": 2007, "count": 1, "avg_price": 0.0}, {"year": 2008, "count": 3, "avg_price": 9.99}, {"year": 2009, "count": 11, "avg_price": 10.26}, {"year": 2010, "count": 10, "avg_price": 8.19}, {"year": 2011, "count": 16, "avg_price": 4.91}, {"year": 2012, "count": 24, "avg_price": 5.97}, {"year": 2013, "count": 35, "avg_price": 10.5}, {"year": 2014, "count": 116, "avg_price": 8.42}, {"year": 2015, "count": 165, "avg_price": 6.17}, {"year": 2016, "count": 304, "avg_price": 5.25}, {"year": 2017, "count": 384, "avg_price": 8.43}, {"year": 2018, "count": 426, "avg_price": 32.75}, {"year": 2019, "count": 442, "avg_price": 6.99}, {"year": 2020, "count": 521, "avg_price": 5.39}, {"year": 2021, "count": 703, "avg_price": 5.89}, {"year": 2022, "count": 734, "avg_price": 8.55}, {"year": 2023, "count": 740, "avg_price": 7.28}, {"year": 2024, "count": 1107, "avg_price": 5.89}, {"year": 2025, "count": 1077, "avg_price": 4.85}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
